@@ -1,0 +1,182 @@
+/*1page*/
+#cid {
+
+    margin-top: 20vw;
+    text-align: center;
+    font-size: 2vw;
+
+}
+
+
+.simple_square_btn1 {
+    display: block;
+    position: relative;
+    width: 40vw;
+    height: 5vw;
+    padding: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #795548;
+    margin: auto;
+    font-size: 3vw;
+    margin-top: 6vw;
+
+}
+
+.simple_square_btn1:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*2page*/
+.h1_2page {
+    text-align: center;
+    font-size: 50px;
+
+}
+
+#migi {
+    /border: 1px solid red;
+    /padding: 100px 60px;
+    float: right;
+    margin-top: 5vw;
+    margin-right: 3vw;
+   }
+
+#hidari {
+    /border: 1px solid blue;
+    /padding: 100px 60px;
+    float: left;
+    margin-top: 5vw;
+     margin-left: 3vw;
+}
+
+#satu {
+    font-size: 3vw;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    float: none;
+    float: none;
+    margin-left: 10vw;
+    margin-top: 5vw;
+}
+
+#tyuui {
+    /border: 1px solid black;
+    margin-top: 2vw;
+    font-size: 2.5vw;
+    margin-left: 10vw;
+}
+
+#T1 {
+    margin-left: 10vw;
+}
+
+#capture_image {
+    margin-left: 12vw;
+}
+
+#dl_S{
+    font-size: 2vw;
+    margin-top: 2vw;
+    margin-left: 5vw;
+}
+
+#dl_G{
+   font-size: 2vw;
+    margin-top: 2vw;
+    margin-left: vw; 
+}
+.cva{
+    border: 1px solid gray;
+        }
+        
+.vide{
+    border: 1px solid gray;
+}
+
+/*4page*/
+
+
+
+.loading{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background: #fff;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  .animation{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    color: #000;
+    -webkit-animation: lodanimetion 1500ms ease-out forwards infinite;
+    animation: lodanimetion 1500ms ease-out forwards infinite;
+  }
+  @keyframes lodanimetion {
+    from,to {
+      opacity: 0;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+.h1_4page {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-align: center;
+    font-size: 5vw
+}
+
+.simple_square_btn4 {
+    display: block;
+    position: relative;
+    width: 15vw;
+    height: 2vw;
+    padding: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: #00bfff;
+    margin-left: 75vw;
+    font-size: 2vw;
+    margin-top: 6vw;
+}
+
+.simple_square_btn4:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.canvas_4page {
+    /border: 1px solid blue;
+    padding: 10px 60px;
+    float: left;
+    margin-left: 8vw;
+    margin-top: 3vw;
+}
+
+#kekka {
+
+    /border: 1px solid blue;
+    margin-top: 10vw;
+    margin-left: 55vw;
+    margin-bottom: 22vw;
+    font-size: 50px
+}
+
