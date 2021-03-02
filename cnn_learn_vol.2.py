@@ -1,4 +1,6 @@
-# 普通に学習２
+# 深層学習についてはすべて理解してるわけではないので参考までに
+# https://www.codexa.net/cnn-mnist-keras-beginner/
+# https://ai-antena.net/ai-cnn
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,12 +18,16 @@ in_npy = "act_rgb.npy"
 out_model = "cnn_vol.2_model.h5"
 
 # CNN設定
+# クラス数（芸能人３５人）、クラスが多いほど分類は難しくなる
 CATEGORY_NUM = 35
+# 1回に処理するデータの塊
 BATCH_SIZE = 128
+# １つの訓練データを何回学習させるか（多すぎると過学習になる、少なすぎると学習不足を引き起こす）
+# 過学習は過去問をやりすぎて本番で新問題に対応できないてきな
 EPOCHS = 100
 LEARNING_RATE = 0.0001
 
-
+# 以下は深層学習、mnistをやっておくとわかりやすい
 def main():
     # gen_data.pyで生成したRGB形式の画像データを読み込む
     X_train, X_val, Y_train, Y_val = np.load("./" + in_npy, allow_pickle=True)
@@ -39,13 +45,16 @@ def main():
 def model_train(X, Y, Xv, Yv):
     # モデルの定義
     model = Sequential()
-
+    # 畳み込み
     model.add(Conv2D(32, (3, 3), padding='same', input_shape=X.shape[1:]))
+    # 活性化関数reluを使用、reluはマイナスの値（ノイズ）を0にするので画像分類に適している
     model.add(Activation('relu'))
 
     model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
+    # 特徴を残しながら画像を縮小
     model.add(MaxPooling2D(pool_size=(2, 2)))
+    # 25%を無効にして学習させる（過学習を防げる）
     model.add(Dropout(0.25))
 
     model.add(Conv2D(64, (3, 3), padding='same'))
@@ -55,12 +64,13 @@ def model_train(X, Y, Xv, Yv):
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
-
+    # １次元のベクトルに変換
     model.add(Flatten())
-
+    # 出力層
     model.add(Dense(512))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
+    # 最後はクラスの数を出力する
     model.add(Dense(CATEGORY_NUM))
     model.add(Activation('softmax'))
 
@@ -71,6 +81,7 @@ def model_train(X, Y, Xv, Yv):
     opt = keras.optimizers.rmsprop(lr=LEARNING_RATE, decay=1e-6)
 
     # モデル最適化の宣言
+    # 損失関数、最適化アルゴリズムはいろいろあるので試してみるといい
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
     # 学習
